@@ -1,0 +1,162 @@
+@import "./config/reset";
+@import "./config/colors";
+@import "./config/fuentes";
+@import "./config/mixins";
+@import "./config/breackpoints";
+@import "./config/containers";
+
+.header {
+	width: 100%;
+	display: flex;
+	height: 60px;
+	background-color: var(--background);
+	align-items: center;
+
+	&__logo {
+		width: 20%;
+		min-width: 170px;
+		display: flex;
+		height: 60px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		@include tablet {
+			width: 35%;
+		}
+
+		&__title {
+			color: var(--text-primary);
+			font-family: Audiowide, sans-serif;
+			font-size: 1.7rem;
+		}
+	}
+	&__menu {
+		width: 70%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: 60%;
+		height: 60px;
+		background-color: var(--background);
+		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+		// border: 1px solid #ddd;
+		@include tablet {
+			position: absolute;
+			z-index: -10;
+			width: 100%;
+			height: auto;
+			top: 60px;
+			left: 0;
+			justify-content: start;
+			flex-direction: column;
+			transform: translateY(-400px);
+			opacity: 1;
+
+			&-open {
+				transform: translateY(0px);
+				opacity: 1;
+			}
+		}
+
+		&__item {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			color: var(--text-primary);
+			font-weight: 400;
+
+			@include tablet {
+				padding: 20px;
+				@include box-shadow;
+			}
+			&:hover {
+				text-decoration: underline;
+			}
+			&__profile {
+				position: relative;
+				// background-color: red;
+
+				&__menu {
+					display: flex;
+					position: absolute;
+					top: 40px;
+					left: 100px;
+					flex-direction: column;
+					width: 250px;
+					height: auto;
+					background-color: #000;
+					align-items: center;
+					border-radius: 10px;
+					@media screen and (max-width: 700px) {
+						width: 15%;
+					}
+
+					&-item {
+						width: 100%;
+						padding: 7px 20px;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	&__carrito {
+		width: 10%;
+		height: 60px;
+		display: flex;
+
+		justify-content: center;
+		align-items: center;
+		margin-left: auto;
+
+		@media screen and (max-width: 700px) {
+			width: 15%;
+		}
+
+		&__icon {
+			position: relative;
+			display: flex;
+			align-items: center;
+			color: #000;
+			text-decoration: none;
+			font-size: 1.3em;
+		}
+
+		&__notificacion {
+			position: absolute;
+			top: -5px;
+			right: -7px;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background-color: #f73c57;
+
+			text-align: center;
+			color: white;
+			font-size: 0.5em;
+			font-weight: 700;
+			line-height: 1.38;
+			box-shadow: 0 0 0 1px white;
+		}
+	}
+
+	&__theme {
+		background-color: var(--text-primary);
+		border: none;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		padding: 10px;
+		cursor: pointer;
+	}
+}
+
+.padding__header {
+	padding-bottom: 60px;
+}

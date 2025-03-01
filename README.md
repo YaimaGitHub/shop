@@ -1,53 +1,58 @@
-# 🛒 Tienda Online con React: Carrito de Compras en Tiempo Real
+# Gamertec - FrontEnd
 
-¿Quieres llevar tus habilidades de React al siguiente nivel? Este proyecto es una tienda online dinámica diseñada para enseñarte a construir un **ecommerce completo** desde cero. Utiliza herramientas modernas como **React JS**, **Zustand** y **Bootstrap** para crear una experiencia de usuario fluida y profesional.
+FrontEnd de tienda online Gamertec
 
-## Resultado final
+## Previsualización
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/tienda-online-con-carrito-de-compra-en-react.gif)
+previsualización de `despliegue utilizando React`
 
+- Pantalla Principal
 
-### Características principales:
-- Agregar productos al carrito.
-- Incrementar o decrementar la cantidad de un producto.
-- Eliminar productos individualmente.
-- Total de productos agregados al carrito
-- Total a pagar
+![Imagen despliegue Principal](./src/images/readme/gamertec-frontend-home.jpeg)
 
----
+- Pantalla de Productos
 
-## 🚀 Tecnologías utilizadas
+![Imagen despliegue Productos](./src/images/readme/gamertec-frontend-products.jpeg)
 
-- **[Vite](https://vitejs.dev/):** Configuración rápida y ligera para React.
-- **[Bootstrap](https://getbootstrap.com/):** Framework CSS para un diseño atractivo y responsivo.
-- **React Hooks:** `useState`, `useEffect`, `useMemo`, `useFetch`, entre otros.
-- **[Zustand](https://zustand-demo.pmnd.rs/):** Librería de gestión de estado simple y rápida.
-- **[Axios](https://axios-http.com/):** Cliente HTTP para consumir APIs.
-- **[React Icons](https://react-icons.github.io/react-icons/):** Iconos personalizables para React.
-- **[Typewriter Effect](https://www.npmjs.com/package/typewriter-effect):** Efectos de texto animados para mejorar la experiencia visual.
-- **[loadingbars](https://klendi.github.io/react-top-loading-bar/):** Efecto de loading bars para el filtro.
+- Pantalla de Descripción de Producto
 
----
+![Imagen despliegue Descripción de Producto](./src/images/readme/gamertec-frontend-product-description.jpeg)
 
+## Instalar Dependencias
 
-## Pasos para ejecutar el proyecto en tu entorno local:
+para poder descargar las dependencias y la carpeta de node_modules, ejecutar el siguiente comando:
 
-1. Clona este repo.
-2. Instala las dependencias con `npm install`.
-3. Corre el proyecto con `npm run dev`.
-4. Ve al navegador y abre `http://localhost:5173/`.
+```bash
+  npm install
+```
 
+## Configurar Variables de Entorno
 
-## 🙌 Cómo puedes apoyar 📢:
+### 1. Crear arhivo .env
 
-✨ **Comparte este proyecto** con otros desarrolladores para que puedan beneficiarse 📢.
+Crear el arhivo .env en la raiz del proyecto, con las siguientes variables:
 
-☕ **Invítame un café o una cerveza 🍺**:
-   - [Paypal](https://www.paypal.me/iamdeveloper86) (`iamdeveloper86@gmail.com`).
+```js
+//VARIABLE = "VALOR" // EJEMPLO
+REACT_APP_API_URL = ""; // http://localhost:3001
+```
 
-### ⚡ ¡No olvides SUSCRIBIRTE a la [Comunidad WebDeveloper](https://www.youtube.com/WebDeveloperUrianViera?sub_confirmation=1)!
+`El puerto para este servicio FrontEnd, debe ser diferente al de la API`
 
+### 2. Configurar variables de entorno
 
-#### ⭐ **Déjanos una estrella en GitHub**:
-   - Dicen que trae buena suerte 🍀.
-**Gracias por tu apoyo 🤓.**
+estas variables se tienen que configurar para que pueda cargar el proyecto, `tener en cuenta que para que REACT reconozca las variables estas deben empezar por: REACT_APP...`
+
+| variable            | descripcion                             |
+| :------------------ | :-------------------------------------- |
+| `REACT_APP_API_URL` | `URL del despligue (dominio principal)` |
+
+## Iniciar Proyecto
+
+`Antes de iniciar el proyecto, incializar la api` para obtener los datos de la base.
+
+Una vez desplegado el servicio de la API, ya podemos correr la FrontEnd en modo desarrollo, con el siguiente comando:
+
+```bash
+  npm run dev
+```

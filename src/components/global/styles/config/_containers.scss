@@ -1,0 +1,30 @@
+@import "./colors";
+@import "./mixins";
+
+.container {
+	width: 100%;
+	background-color: var(--background);
+}
+
+.container-fixed {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 40;
+	background-color: var(--background);
+	@include box-shadow;
+}
+
+.container-footer {
+	width: 100%;
+	position: relative;
+	background-color: var(--background-footer);
+	// background-color: red;
+}
+
+.container-max {
+	// background-color: var(--background);
+	max-width: 1240px;
+	height: auto;
+	margin: 0 auto;
+}
