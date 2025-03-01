@@ -1,58 +1,103 @@
-# Gamertec - FrontEnd
+# Tech Shop 🛒
 
-FrontEnd de tienda online Gamertec
+**Tech Shop** es una tienda online de productos tecnológicos desarrollada con las siguientes tecnologías:
 
-## Previsualización
+- **Frontend**: React + Vite + Bootstrap + CSS personalizado.
+- **Backend**: Strapi para la creación de la API.
 
-previsualización de `despliegue utilizando React`
+El proyecto se encuentra en desarrollo y actualmente cuenta con las siguientes funcionalidades:
 
-- Pantalla Principal
+- **Paginación**: Navegación entre páginas para una mejor organización de los productos.
+- **Filtrado**: Filtrado de productos por categorías, precios, etc.
+- **Carrito de compras**: Añadir, eliminar y gestionar productos en el carrito.
+- **Detalles de productos**: Vista detallada de cada producto con descripción, imágenes y más.
 
-![Imagen despliegue Principal](./src/images/readme/gamertec-frontend-home.jpeg)
+## Características principales 🚀
 
-- Pantalla de Productos
+- **Interfaz moderna y responsive**: Diseño adaptado a dispositivos móviles y desktop.
+- **API personalizada**: Desarrollada con Strapi para gestionar productos, categorías y pedidos.
+- **Estilos personalizados**: Uso de CSS para personalizar la apariencia de la tienda.
+- **Rendimiento optimizado**: Gracias a Vite, la aplicación tiene un tiempo de carga rápido.
+- **LocalStorage**: Almacena el carrito de compras en el navegador, asegurando su persistencia incluso después de cerrar la página o el navegador.
 
-![Imagen despliegue Productos](./src/images/readme/gamertec-frontend-products.jpeg)
+## Tecnologías utilizadas 💻
 
-- Pantalla de Descripción de Producto
+- **React**: Biblioteca de JavaScript para construir la interfaz de usuario.
+- **Vite**: Herramienta de construcción rápida para el desarrollo moderno.
+- **Bootstrap v5.2.3**: Framework de CSS para diseñar componentes responsive. 
+- **Strapi**: Headless CMS para crear y gestionar la API.
+- **CSS personalizado**: Estilos adicionales para personalizar la apariencia. Estilos personalizados diseñados específicamente para el proyecto y variables y fragmentos reutilizados de Bootstrap.
 
-![Imagen despliegue Descripción de Producto](./src/images/readme/gamertec-frontend-product-description.jpeg)
+**Librerías**: 
+- Para el spinner -> `https://uiball.com/ldrs/` *(midudev)*
+- Para la alerta al pulsar '*agregar al carrito*' -> React-Toastify () -> `https://www.npmjs.com/package/react-toastify`
+  
+## Funcionalidades actuales ✅
 
-## Instalar Dependencias
+1. **Paginación**: Navega entre páginas de productos.
+2. **Filtrado**: Filtra productos por categoría, precio, etc.
+3. **Carrito de compras**: Añade y gestiona productos en el carrito.
+4. **Detalles de productos**: Visualiza información detallada de cada producto.
 
-para poder descargar las dependencias y la carpeta de node_modules, ejecutar el siguiente comando:
+## Próximas funcionalidades 📅
 
-```bash
-  npm install
+- [ ] Integración con pasarela de pago (Stripe, PayPal, etc.).
+- [ ] Sistema de autenticación y registro de usuarios.
+- [ ] Búsqueda de productos por nombre o descripción.
+- [ ] Sección de reseñas y valoraciones de productos.
+
+## Instalación y configuración ⚙️
+
+### Requisitos previos
+
+- Node.js (v16 o superior)
+- npm o yarn
+
+### Pasos para ejecutar el proyecto
+
+1. Clona el repositorio:
+   ```
+   git clone https://github.com/tuusuario/tech-shop.git
+   ```
+   
+2. Instala las dependencias del frontend:
+
+
+```
+cd tech-shop/frontend
+npm install
 ```
 
-## Configurar Variables de Entorno
+3. Instala las dependencias del backend (Strapi):
 
-### 1. Crear arhivo .env
-
-Crear el arhivo .env en la raiz del proyecto, con las siguientes variables:
-
-```js
-//VARIABLE = "VALOR" // EJEMPLO
-REACT_APP_API_URL = ""; // http://localhost:3001
+```
+cd ../backend
+npm install
 ```
 
-`El puerto para este servicio FrontEnd, debe ser diferente al de la API`
-
-### 2. Configurar variables de entorno
-
-estas variables se tienen que configurar para que pueda cargar el proyecto, `tener en cuenta que para que REACT reconozca las variables estas deben empezar por: REACT_APP...`
-
-| variable            | descripcion                             |
-| :------------------ | :-------------------------------------- |
-| `REACT_APP_API_URL` | `URL del despligue (dominio principal)` |
-
-## Iniciar Proyecto
-
-`Antes de iniciar el proyecto, incializar la api` para obtener los datos de la base.
-
-Una vez desplegado el servicio de la API, ya podemos correr la FrontEnd en modo desarrollo, con el siguiente comando:
-
-```bash
-  npm run dev
+4. Inicia el servidor de Strapi:
 ```
+npm run develop
+```
+
+5. Inicia la aplicación de React:
+
+```
+cd ../frontend
+npm run dev
+```
+
+Abre tu navegador y visita `http://localhost:3000` para ver la tienda en funcionamiento.
+
+### Autores: 
+👩‍💻 Laura Castaño
+
+👨‍💻 Víctor Márquez
+
+
+### **Licencia** 📄
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+Tech Shop es un proyecto en constante evolución. ¡Gracias por visitar y apoyar el desarrollo! 🚀
+
