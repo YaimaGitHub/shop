@@ -1,0 +1,7 @@
+{
+  "regions": ["cle1"],
+  "env": {
+    "ENCRYPTION_IV": "@encryption-iv",
+    "ENCRYPTION_KEY": "@encryption-secret"
+  }
+}
