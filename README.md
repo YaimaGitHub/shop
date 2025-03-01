@@ -1,103 +1,156 @@
-# Tech Shop 🛒
+# Tienda en línea
 
-**Tech Shop** es una tienda online de productos tecnológicos desarrollada con las siguientes tecnologías:
+El propósito de este proyecto es recrear una tienda en línea de ropa donde los usuarios puedan registrarse, iniciar sesión, agregar productos a su carrito de compras y realizar pedidos. El proyecto está desarrollado con PHP, MySQL y Tailwind CSS.
 
-- **Frontend**: React + Vite + Bootstrap + CSS personalizado.
-- **Backend**: Strapi para la creación de la API.
+## Funcionalidades
 
-El proyecto se encuentra en desarrollo y actualmente cuenta con las siguientes funcionalidades:
+_Registro e Inicio de Sesión Seguros:_ Se implementó encriptación de contraseñas y medidas de seguridad contra ataques de SQL injection para garantizar la integridad de los datos de los usuarios.
 
-- **Paginación**: Navegación entre páginas para una mejor organización de los productos.
-- **Filtrado**: Filtrado de productos por categorías, precios, etc.
-- **Carrito de compras**: Añadir, eliminar y gestionar productos en el carrito.
-- **Detalles de productos**: Vista detallada de cada producto con descripción, imágenes y más.
+_Carrito de compras:_ Los usuarios podrán una vez iniciada la sesión agregar productos a su carrito de compras, donde también podrán eliminar productos del mismo o aumentar o disminuir la cantidad de productos que desean comprar.
 
-## Características principales 🚀
+_Pedidos:_ Los usuarios podrán realizar pedidos de los productos que tengan en su carrito de compras, donde se les mostrará un resumen de su pedido y podrán elegir la dirección de envío.
 
-- **Interfaz moderna y responsive**: Diseño adaptado a dispositivos móviles y desktop.
-- **API personalizada**: Desarrollada con Strapi para gestionar productos, categorías y pedidos.
-- **Estilos personalizados**: Uso de CSS para personalizar la apariencia de la tienda.
-- **Rendimiento optimizado**: Gracias a Vite, la aplicación tiene un tiempo de carga rápido.
-- **LocalStorage**: Almacena el carrito de compras en el navegador, asegurando su persistencia incluso después de cerrar la página o el navegador.
+_Administración:_ Los administradores podrán agregar, editar y eliminar productos de la tienda, editar y agregar categorías, así como también podrán ver los pedidos realizados por los usuarios y cambiar su estado.
 
-## Tecnologías utilizadas 💻
+## Vista previa
 
-- **React**: Biblioteca de JavaScript para construir la interfaz de usuario.
-- **Vite**: Herramienta de construcción rápida para el desarrollo moderno.
-- **Bootstrap v5.2.3**: Framework de CSS para diseñar componentes responsive. 
-- **Strapi**: Headless CMS para crear y gestionar la API.
-- **CSS personalizado**: Estilos adicionales para personalizar la apariencia. Estilos personalizados diseñados específicamente para el proyecto y variables y fragmentos reutilizados de Bootstrap.
+![Vista previa 1](./public/img/preview.png)
 
-**Librerías**: 
-- Para el spinner -> `https://uiball.com/ldrs/` *(midudev)*
-- Para la alerta al pulsar '*agregar al carrito*' -> React-Toastify () -> `https://www.npmjs.com/package/react-toastify`
-  
-## Funcionalidades actuales ✅
+## Comenzando
 
-1. **Paginación**: Navega entre páginas de productos.
-2. **Filtrado**: Filtra productos por categoría, precio, etc.
-3. **Carrito de compras**: Añade y gestiona productos en el carrito.
-4. **Detalles de productos**: Visualiza información detallada de cada producto.
+1. Clona este repositorio en tu máquina local o descargar la carpeta comprimida del proyecto:
 
-## Próximas funcionalidades 📅
-
-- [ ] Integración con pasarela de pago (Stripe, PayPal, etc.).
-- [ ] Sistema de autenticación y registro de usuarios.
-- [ ] Búsqueda de productos por nombre o descripción.
-- [ ] Sección de reseñas y valoraciones de productos.
-
-## Instalación y configuración ⚙️
-
-### Requisitos previos
-
-- Node.js (v16 o superior)
-- npm o yarn
-
-### Pasos para ejecutar el proyecto
-
-1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/drifterDev/online-store.git
    ```
-   git clone https://github.com/tuusuario/tech-shop.git
+
+### Prerrequisitos
+
+Antes de comenzar, asegúrate de tener instalado `npm` en tu sistema. Si no lo tienes instalado, puedes descargarlo e instalarlo desde [el sitio web oficial de Node.js](https://nodejs.org/).
+
+También necesitarás tener instalado `composer` en tu sistema. Si no lo tienes instalado, puedes descargarlo e instalarlo desde [el sitio web oficial de Composer](https://getcomposer.org/).
+
+Además, ten en cuenta que para ejecutar este proyecto de manera completa, necesitarás tener PHP y un servidor MySQL configurado en tu entorno de desarrollo. Asegúrate de que tu servidor PHP esté funcionando correctamente y que tengas acceso a una base de datos MySQL para que todas las funcionalidades del proyecto se ejecuten sin problemas.
+
+### Instalación
+
+1. Descargar las dependencias necesarias del proyecto:
+
+   ```bash
+   npm install
+   composer install
    ```
-   
-2. Instala las dependencias del frontend:
 
+2. Ejecutar el comando para compilar los archivos de Tailwind CSS:
 
-```
-cd tech-shop/frontend
-npm install
-```
+   ```bash
+   npm run build
+   ```
 
-3. Instala las dependencias del backend (Strapi):
+3. Configurar la conexión a la base de datos en el archivo `config/Database.php`:
 
-```
-cd ../backend
-npm install
-```
+   ```php
+   define("SERVER", "localhost");
+   define("DATABASE", "nombre_de_la_base_de_datos");
+   define("USERNAME", "tu_usuario");
+   define("PASSWORD", "tu_contraseña");
+   ```
 
-4. Inicia el servidor de Strapi:
-```
-npm run develop
-```
+4. Ejecutar el script SQL `database/database.sql` en tu servidor MySQL para crear la base de datos y las tablas necesarias para el proyecto (Recuerda cambiar el valor de nombre_de_la_base_de_datos).
 
-5. Inicia la aplicación de React:
+5. Asegúrate de crear la carpeta `uploads` en el directorio `public/img` del proyecto. También asegúrate de darle los permisos necesarios a la carpeta `uploads` para que el servidor pueda escribir y leer archivos en ella. Esta carpeta es necesaria para almacenar las imágenes de los productos.
 
-```
-cd ../frontend
-npm run dev
-```
+## Iniciar el proyecto
 
-Abre tu navegador y visita `http://localhost:3000` para ver la tienda en funcionamiento.
+El proyecto fue hecho para practicar los virtual hosts de apache, por lo que para acceder al proyecto se debe configurar un virtual host en el servidor apache.
 
-### Autores: 
-👩‍💻 Laura Castaño
+## Virtual host en Windows con xampp
 
-👨‍💻 Víctor Márquez
+1. Verificar que la siguiente línea este descomentada de `httpd.conf` del servidor apache
 
+   ```bash
+   # Virtual hosts
+   LoadModule vhost_alias_module modules/mod_vhost_alias.so
+   ```
 
-### **Licencia** 📄
+2. Acceder a la carpeta de instalación de xamp e ir a la carpeta `apache/conf/extra/httpd-vhosts.conf` y agregar lo siguiente:
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+   ```bash
+   <VirtualHost *:80>
+       DocumentRoot "C:\xampp\htdocs\nombre_del_proyecto\public"
+       ServerName nombre_del_proyecto.test
+       <Directory "C:\xampp\htdocs\nombre_del_proyecto\public">
+           DirectoryIndex index.php
+           Options Indexes FollowSymLinks
+           AllowOverride All
+           Require all granted
+        </Directory>
+   </VirtualHost>
+   ```
 
-Tech Shop es un proyecto en constante evolución. ¡Gracias por visitar y apoyar el desarrollo! 🚀
+3. Ya apache reconoce la url, pero para que el navegador también lo reconozca hay que acceder a la siguiente ruta `C:\Windows\System32\drivers\etc` y editar el archivo `hosts` agregando la siguiente línea:
+
+   ```bash
+   127.0.0.1 nombre_del_proyecto.test
+   ```
+
+4. Reiniciar el servidor apache y acceder al proyecto utilizando la URL `http://nombre_del_proyecto.test`.
+
+## Virtual host en Linux con httpd
+
+1. Acceder a la carpeta de instalación de httpd e ir a la carpeta `/etc/httpd/conf/httpd.conf` y agregar lo siguiente:
+
+   ```bash
+   <VirtualHost *:80>
+    DocumentRoot "/var/www/html/nombre_del_proyecto/public"
+    ServerName nombre_del_proyecto.test
+    ServerAlias www.nombre_del_proyecto.test
+    <Directory "/var/www/html/nombre_del_proyecto/public">
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Require all granted
+        DirectoryIndex index.php
+    </Directory>
+   </VirtualHost>
+   ```
+
+2. Ya apache reconoce la url, pero para que el navegador también lo reconozca hay que acceder a la siguiente ruta `/etc/hosts` y editar el archivo `hosts` agregando la siguiente línea:
+
+   ```bash
+   127.0.0.1   www.nombre_del_proyecto.test nombre_del_proyecto.test
+   ```
+
+3. Reiniciar el servidor apache
+
+   ```bash
+   sudo systemctl restart httpd
+   ```
+
+4. Abrir el navegador web y acceder al proyecto utilizando la URL `http://nombre_del_proyecto.test`.
+
+## Construido con
+
+- [Tailwind CSS](https://tailwindcss.com/) - El framework CSS utilizado
+- [MySQL](https://www.mysql.com/) - Gestor de base de datos
+- [PHP](https://www.php.net/) - Lenguaje de programación utilizado en el backend
+
+## Más vistas previas
+
+![Vista previa 2](./public/img/preview2.png)
+
+![Vista previa 3](./public/img/preview3.png)
+
+## Contribuyendo
+
+Aprecio cualquier sugerencia para mejorar el contenido de este proyecto. Si deseas contribuir, por favor crea un "issue" en el repositorio o contáctame directamente. Valoraré tus aportes para mejorar este repositorio.
+
+## Licencia proyecto
+
+Los códigos incluidos en este proyecto están bajo la Licencia MIT. Para obtener más información, consulta el archivo [LICENSE](LICENSE) en la raíz del repositorio.
+
+## Licencia de terceros
+
+Las imágenes utilizadas en este proyecto han sido obtenidas de Pexels.com, un sitio web que ofrece fotos de alta calidad de dominio público sin restricciones de licencia. Aunque no es necesario dar atribución en muchos casos, quiero reconocer y agradecer a la comunidad de Pexels por proporcionar recursos visuales gratuitos.
+
+Para obtener más información sobre la licencia de las imágenes específicas utilizadas en este proyecto, consulta las políticas de licencia en el sitio web de Pexels: [Pexels License](https://www.pexels.com/license/).
 
