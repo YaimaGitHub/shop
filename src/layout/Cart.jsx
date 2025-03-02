@@ -113,7 +113,7 @@ const Cart = ({ closeCart }) => {
       }
     }).join(" ")
   }
-  const messageCheckout = `Hola YeroCart! \nTu pedido es el siguiente: \n \n ${generateMessage()} \n *Total = $${totalPrice.toFixed(2)}* \n \n Gracias por comprar con nosotros!`
+  const messageCheckout = `Bienvenido a YeroCart! \nSu pedido es el siguiente: \n \n ${generateMessage()} \n *Total = $${totalPrice.toFixed(2)}* \n \n Gracias por comprar con nosotros!`
 
   const handleCheckout = () => {
     Swal.fire({
