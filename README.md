@@ -1,10 +1,8 @@
-*Make a list of items and place order on whatsapp quickly*
-*this project is build with expo*
+# React + Vite
 
-```how to run```
-- yarn 
-- yarn start
-- expo: build-android
-- build relase apk expo build:android
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-got more read here: https://expo.io/
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
