@@ -96,7 +96,7 @@ const Product = ({ setIsLoaded }) => {
                   type="text"
                   name="search"
                   id="search"
-                  placeholder="Search Product by Title...."
+                  placeholder="Buscar producto por título...."
                   icon={faSearch}
                   oc={handleSearch}
                   customStyles={"border-[2.5px] border-[#4B5563]"}
