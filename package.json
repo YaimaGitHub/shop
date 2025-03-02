@@ -1,27 +1,27 @@
 {
-  "name": "app-delivery-comida",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "burger-queen-project",
+  "version": "1.0.0",
+  "description": "Vue project",
+  "main": "server.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "server": "nodemon server.js",
+    "client": "cd client && npm run serve",
+    "dev": "concurrently --names \"server,client\" \"npm run server --silent\" \"npm run client --silent\""
   },
+  "keywords": [],
+  "author": "Brenda Sanrey",
+  "license": "ISC",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "apollo-server": "^2.0.0-rc.7",
+    "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "jsonwebtoken": "^8.3.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.2.6"
   },
   "devDependencies": {
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.0"
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.18.1"
   }
 }

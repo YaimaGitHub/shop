@@ -1,0 +1,41 @@
+type Food {
+  _id: ID
+  name: String!
+  price: Int!
+  imageURL: String!
+}
+
+type Extra {
+  _id: ID
+  name: String!
+  price: Int!
+  imageURL: String!
+}
+
+type Drink {
+  _id: ID
+  name: String!
+  price: Int!
+  imageURL: String!
+}
+
+type Order {
+  _id: ID
+  products: [String]!
+  total: Int!
+  client: String!
+}
+
+type Query {
+  getDrinkList: [Drink]!
+  getFoodList: [Food]!
+  getExtraList: [Extra]!
+  getOrderList: [Order]!
+}
+
+type Mutation {
+  addDrink(name: String!, price: Int!, imageURL: String!): Drink!
+  addFood(name: String!, price: Int!, imageURL: String!): Food!
+  addExtra(name: String!, price: Int!): Extra!
+  addOrder(products: [String]!, total: Int!, client: String!): Order!
+}
