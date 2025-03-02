@@ -102,7 +102,7 @@ const DetailProduct = () => {
                     readOnly
                   />
                   <p className="font-semibold text-base opacity-70">
-                    {product.rating.count} Reviews
+                    {product.rating.count} Reseñas
                   </p>
                 </div>
               )}
@@ -128,8 +128,8 @@ const DetailProduct = () => {
                   className="me-2"
                 />
                 {isWishlisted(product.id)
-                  ? "Remove from Wishlist"
-                  : "Add to Wishlist"}
+                  ? "Eliminar de la lista de deseos"
+                  : "Añadir a la lista de deseos"}
               </button>
 
               <p className="text-sm mt-2">{product.description}</p>

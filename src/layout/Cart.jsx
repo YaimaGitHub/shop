@@ -82,8 +82,8 @@ const Cart = ({ closeCart }) => {
         dispatch(clearCart());
         Swal.fire({
           icon: "success",
-          title: "Clear cart successfully!",
-          text: "Thank you for shopping with us!",
+          title: "Borrar carrito exitosamente!",
+          text: "Gracias por comprar con nosotros!",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -119,10 +119,10 @@ const Cart = ({ closeCart }) => {
     Swal.fire({
       icon: "warning",
       title: "Estas seguro?",
-      text: "Revisarás el carrito?",
+      text: "Quieres realizar la compra del producto o los productos agregados al carrito?",
       showCancelButton: true,
-      confirmButtonText: "Si, borrarlo!",
-      cancelButtonText: "No, guárdalo",
+      confirmButtonText: "Si, realizar la compra!",
+      cancelButtonText: "No, guárdar la compra",
     }).then((res) => {
       if(res.isConfirmed) {
         window.open(`${urlWhatsApp}&text=${encodeURIComponent(messageCheckout)}`, "_blank")
@@ -149,7 +149,7 @@ const Cart = ({ closeCart }) => {
                 className="text-red-500 cursor-pointer md:text-base text-xs font-medium hover:text-red-700 duration-300 ease-in-out"
               >
                 <FontAwesomeIcon icon={faTrash} className="me-2" />
-                Clear Cart
+                Borrar carrito
               </button>
             )}
           </div>
@@ -227,7 +227,7 @@ const Cart = ({ closeCart }) => {
                   onClick={() => handleCheckout()}
                   className="bg-green-700 font-semibold text-xs sm:text-sm text-white py-2 px-4 rounded-lg hover:bg-green-800 duration-300 ease-linear"
                 >
-                  Checkout
+                  Verificar
                 </button>
               </div>
             </div>
