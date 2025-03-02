@@ -6,9 +6,9 @@ const Loading = () => {
         role="status"
         aria-label="loading"
       >
-        <span className="sr-only">Loading...</span>
+        <span className="sr-only">Cargando...</span>
       </div>
-      <p className="text-slate-500 text-lg font-medium">Loading...</p>
+      <p className="text-slate-500 text-lg font-medium">Cargando...</p>
     </div>
   );
 };

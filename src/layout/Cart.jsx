@@ -141,7 +141,7 @@ const Cart = ({ closeCart }) => {
         <div className="p-6">
           <div className="flex justify-between items-center border-b pb-4 mb-6">
             <h2 className="text-lg md:text-2xl font-bold text-gray-800">
-              Shopping Cart
+            Carro de la compra
             </h2>
             {cart.length > 0 && (
               <button
@@ -209,7 +209,7 @@ const Cart = ({ closeCart }) => {
             <div className="flex flex-col justify-center items-center space-y-2 mt-8">
               <img src={emptyCartImage} className="size-32" />
               <p className="text-center text-gray-500 font-medium">
-                Your cart is empty.
+              Tu carrito está vacío.
               </p>
             </div>
           )}
