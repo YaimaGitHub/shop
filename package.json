@@ -1,46 +1,27 @@
 {
-	"name": "pedime",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"prettier": "prettier --write '**/*.jsx' && prettier --write '**/*.js' && prettier --write '**/*.json'"
-	},
-	"dependencies": {
-		"@chakra-ui/icons": "^1.0.8",
-		"@chakra-ui/react": "^1.4.2",
-		"@emotion/react": "^11",
-		"@emotion/styled": "^11",
-		"axios": "^0.21.1",
-		"framer-motion": "^4",
-		"next": "10.1.2",
-		"papaparse": "^5.3.0",
-		"react": "17.0.2",
-		"react-dom": "17.0.2"
-	},
-	"devDependencies": {
-		"eslint": "^7.23.0",
-		"eslint-plugin-react": "^7.23.1",
-		"prettier": "^2.2.1"
-	},
-	"prettier": {
-		"printWidth": 90,
-		"tabWidth": 2,
-		"useTabs": true,
-		"semi": true,
-		"arrowParens": "avoid",
-		"bracketSpacing": true,
-		"jsxBracketSameLine": false,
-		"singleQuote": false,
-		"trailingComma": "es5",
-		"endOfLine": "lf",
-		"htmlWhitespaceSensitivity": "css",
-		"jsxSingleQuote": false,
-		"quoteProps": "as-needed",
-		"requirePragma": false,
-		"insertPragma": false,
-		"proseWrap": "preserve"
-	}
+  "name": "app-delivery-comida",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "vite": "^5.2.0"
+  }
 }
