@@ -1,48 +1,21 @@
-# Crea Tu Carrito de Compras Online 🛍️ Ecommerce con la Magia de PHP, JavaScript y MySQL 😯🔥🤩
+[![codecov](https://codecov.io/gh/goncy/commercency/branch/main/graph/badge.svg?token=XiTcCI2c18)](https://codecov.io/gh/goncy/commercency)
 
-##### Tienda Online (ecommerce), práctica solución de comercio electrónico construida utilizando las poderosas herramientas de programación web: PHP, JavaScript y MySQL. Esta aplicación te permite diseñar y gestionar tu propia tienda en línea, brindando a los usuarios la experiencia de compra perfecta.
+---
 
-### Tienda Online - ecommerce
+# Commercency
+Ecommerce, simple.
 
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/tienda-online-ecommerce-urian-viera.png)
+## Como la uso?
+1. Crea una copia de [esta planilla de calculo](https://docs.google.com/spreadsheets/d/1Q_mDN1w88zE1vDasru-f3D6kxZAynUC1s253yLmjE7M/edit?usp=sharing).
+2. Una vez copiada, toca en `Archivo > Publicar en la web`, selecciona `Valores separados por comas (.csv)` del desplegable y clickea en `publicar`.
+3. Asegurate que en vez de `Pagina web` diga `Valores separados por comas (.csv)` y copia el enlace.
+4. Llena [este archivo](./.env.example) y completa los datos de tu tienda y renombralo a `.env.local`.
+5. Publica el sitio en [algun hosting que soporte NextJS](https://vercel.com)
 
-### Productos
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/productos-tienda-online-urian-viera.png)
-
-### Descripción del Producto 😯
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/descripcion-producto-tienda-online-ecommerce-urian-viera.png)
-
-### Productos Seleccionados 😯
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/tienda-online-urian-viera.png)
-
-### Generando pedido en PDF
-
-![](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/master/pdf-reporte-pedido-tienda-online-urian-viera.PNG)
-
-### Requerimientos 📋
-
-    Servidor Web (Apache)
-    PHP (compatible con las versiones  7 y 8)
-    MySQL 5 o superior
-    phpMyAdmin (opcional)
-    Puedes usar un todo en uno como XAMPP, WAMPP, LARAGON u otro.
-
-### Instrucciones para descarga 🔧
-
-    Descarga el proyecto
-    Copia la carpeta en el htdocs o www del servidor web.
-    Importa el archivo bd_tienda_online.sql a MySQL
-    Cambia los datos de conexión en el archivo config.php
-    Ingresa desde un navegador a http://localhost/nombre_de_la_carpeta_del_proyecto
-
-### Expresiones de Gratitud 🎁
-
-    ¡Comparte este emocionante proyecto con los demás! 📢
-    Apóyanos con una cerveza 🍺 o un reconfortante café ☕
-    Contribuye a través de PayPal: iamdeveloper86@gmail.com
-    Expresa tus agradecimientos en público 🤓 ¡Te lo agradeceremos enormemente!
-
-## ¡No dejes pasar la oportunidad de SUSCRIBIRTE! 👍
+# TODO
+* Revisar si deberia traer los fields como un Record<string, string> o como un array.
+* Revisar si CartDrawer deberia ser un solo componente o dividirlo mas
+* Si no tengo fields, el componente de Details debería mostrarme el botón de completar pedido
+* Datos de tienda vía hoja de sheet
+* Búsqueda
+* Secciones por categoría
