@@ -82,7 +82,7 @@ const Cart = ({ closeCart }) => {
         dispatch(clearCart());
         Swal.fire({
           icon: "success",
-          title: "Borrar carrito exitosamente!",
+          title: "Carrito borrado exitosamente!",
           text: "Gracias por comprar con nosotros!",
           showConfirmButton: false,
           timer: 1500,
