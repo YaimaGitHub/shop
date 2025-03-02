@@ -43,7 +43,7 @@ const Wishlist = ({ closeWishlist }) => {
         dispatch(removeFromWishlist({ id }));
         Swal.fire({
           icon: "success",
-          title: "Eliminar de la lista de deseos con éxito!",
+          title: "Eliminado de la lista de deseos con éxito!",
           text: "Gracias por comprar con nosotros!",
           showConfirmButton: false,
           timer: 1500,
