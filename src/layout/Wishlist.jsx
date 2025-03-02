@@ -33,11 +33,11 @@ const Wishlist = ({ closeWishlist }) => {
   const handleRemoveFromWishlist = (id) => {
     Swal.fire({
       icon: "warning",
-      title: "Are you sure?",
-      text: "You will delete this product from the wishlist?",
+      title: "Estas seguro?",
+      text: "Eliminarás este producto de la lista de deseos?",
       showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, keep it",
+      confirmButtonText: "Si, borrarlo!",
+      cancelButtonText: "No, guárdalo",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(removeFromWishlist({ id }));
@@ -74,7 +74,7 @@ const Wishlist = ({ closeWishlist }) => {
         <div className="p-6">
           <div className="flex justify-between items-center border-b pb-4 mb-6">
             <h2 className="text-lg md:text-2xl font-bold text-gray-800">
-              My Wishlist
+            Mi lista de deseos
             </h2>
           </div>
 
@@ -133,7 +133,7 @@ const Wishlist = ({ closeWishlist }) => {
             <div className="flex flex-col justify-center items-center space-y-2 mt-8">
               <img src={emptyWishlistImage} className="h-32" />
               <p className="text-center text-gray-500 font-medium">
-                Your wishlist is empty.
+              Tu lista de deseos está vacía.
               </p>
             </div>
           )}

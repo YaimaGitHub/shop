@@ -50,11 +50,11 @@ const Cart = ({ closeCart }) => {
   const handleRemoveFromCart = (id) => {
     Swal.fire({
       icon: "warning",
-      title: "Are you sure?",
-      text: "You will delete this product from the cart",
+      title: "Estas seguro?",
+      text: "Eliminarás este producto del carrito",
       showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, keep it",
+      confirmButtonText: "Si, borrarlo!",
+      cancelButtonText: "No, guárdalo",
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(removeFromCart({ id }));
@@ -72,11 +72,11 @@ const Cart = ({ closeCart }) => {
   const handleClearCart = () => {
     Swal.fire({
       icon: "warning",
-      title: "Are you sure?",
-      text: "You will clear all products from the cart",
+      title: "Estas seguro?",
+      text: "Borrarás todos los productos del carrito",
       showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, keep it",
+      confirmButtonText: "Si, borrarlo!",
+      cancelButtonText: "No, guárdalo",
     }).then((res) => {
       if (res.isConfirmed) {
         dispatch(clearCart());
@@ -104,7 +104,7 @@ const Cart = ({ closeCart }) => {
     }
   };
 
-  const urlWhatsApp = "https://api.whatsapp.com/send/?phone=6282314957109"
+  const urlWhatsApp = "https://api.whatsapp.com/send/?phone=5354690878"
   const generateMessage = () => {
     return cart.map((item, index) => {
       const product = products.find((product) => product.id === item.id);
@@ -113,16 +113,16 @@ const Cart = ({ closeCart }) => {
       }
     }).join(" ")
   }
-  const messageCheckout = `Hello KevCart! \nYour order is as follows: \n \n ${generateMessage()} \n *Total = $${totalPrice.toFixed(2)}* \n \n Thank you for shopping with us!`
+  const messageCheckout = `Hola YeroCart! \nTu pedido es el siguiente: \n \n ${generateMessage()} \n *Total = $${totalPrice.toFixed(2)}* \n \n Gracias por comprar con nosotros!`
 
   const handleCheckout = () => {
     Swal.fire({
       icon: "warning",
-      title: "Are you sure?",
-      text: "You will checkout the cart?",
+      title: "Estas seguro?",
+      text: "Revisarás el carrito?",
       showCancelButton: true,
-      confirmButtonText: "Yes, checkout it!",
-      cancelButtonText: "No, keep it",
+      confirmButtonText: "Si, borrarlo!",
+      cancelButtonText: "No, guárdalo",
     }).then((res) => {
       if(res.isConfirmed) {
         window.open(`${urlWhatsApp}&text=${encodeURIComponent(messageCheckout)}`, "_blank")

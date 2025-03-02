@@ -138,7 +138,7 @@ const Product = ({ setIsLoaded }) => {
                 <div className="flex justify-center w-full min-h-[65vh] sm:min-h-[75vh]">
                   <img
                     src={notFoundImage}
-                    alt="No product found"
+                    alt="No se encontró ningún producto"
                     className="mx-auto h-[300px] "
                   />
                 </div>
