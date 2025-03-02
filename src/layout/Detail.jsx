@@ -44,8 +44,8 @@ const DetailProduct = () => {
     dispatch(addToCart({ id: product.id, qty: 1 }));
     Swal.fire({
       icon: "success",
-      title: "Add to cart successfully!",
-      text: "Thank you for shopping with us!",
+      title: "Añadido al carrito con éxito!",
+      text: "Gracias por comprar con nosotros!",
       showConfirmButton: false,
       timer: 1500,
     });
@@ -116,7 +116,7 @@ const DetailProduct = () => {
                   className="font-semibold bg-green-700 text-white py-2 px-3 text-sm rounded-lg hover:bg-green-800 duration-300 ease-linear"
                 >
                   <FontAwesomeIcon icon={faCartPlus} className="me-2" />
-                  Add To Cart
+                  Añadir al carrito
                 </button>
               </div>
               <button

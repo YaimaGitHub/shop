@@ -38,8 +38,8 @@ const Product = ({ setIsLoaded }) => {
     dispatch(addToCart({ id: product.id, qty: 1 }));
     Swal.fire({
       icon: "success",
-      title: "Add to cart successfully!",
-      text: "Thank you for shopping with us!",
+      title: "Añadido al carrito con éxito!",
+      text: "Gracias por comprar con nosotros!",
       showConfirmButton: false,
       timer: 1500,
     });

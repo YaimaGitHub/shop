@@ -39,7 +39,7 @@ const Navbar = () => {
             className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-slate-100 flex items-center"
           >
             <FontAwesomeIcon icon={faShoppingBag} className="me-2" />
-            KevCart
+            YeroCart
           </Link>
           <div className="flex gap-x-3">
             <div
