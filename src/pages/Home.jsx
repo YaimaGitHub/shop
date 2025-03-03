@@ -5,7 +5,7 @@ import Product from "../layout/Product"
 
 const HomePage = () => {
     const [isLoaded, setIsLoaded] = useState(false)
-    document.title = "YeroCart"
+    document.title = "Yero Cart"
 
     return (
         <>
