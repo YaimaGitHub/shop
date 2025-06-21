@@ -33,6 +33,7 @@ export default function ItemModal({ showModal, setModal, item }) {
   const [selectedImage, setSelectedImage] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1024)
+  const [isInWishlist, setIsInWishlist] = useState(false)
   const slideInterval = useRef(null)
   const slideDelay = 3000 // Time in ms between slides
 
@@ -45,6 +46,45 @@ export default function ItemModal({ showModal, setModal, item }) {
     img, // Main image
     ...(item.additionalImages || []), // Additional images if they exist
   ]
+
+  // Check if item is in wishlist
+  useEffect(() => {
+    if (item && id) {
+      try {
+        const savedWishlist = JSON.parse(localStorage.getItem("yero-wishlist") || "[]")
+        setIsInWishlist(savedWishlist.includes(id.toString()))
+      } catch (error) {
+        console.error("Error checking wishlist:", error)
+        setIsInWishlist(false)
+      }
+    }
+  }, [item, id])
+
+  // Function to toggle wishlist
+  const toggleWishlist = () => {
+    if (!item || !id) return
+
+    try {
+      const savedWishlist = JSON.parse(localStorage.getItem("yero-wishlist") || "[]")
+      let newWishlist
+
+      if (savedWishlist.includes(id.toString())) {
+        // Remove from wishlist
+        newWishlist = savedWishlist.filter((wishId) => wishId !== id.toString())
+        setIsInWishlist(false)
+        alert(`"${title}" eliminado de tu lista de deseados`)
+      } else {
+        // Add to wishlist
+        newWishlist = [...savedWishlist, id.toString()]
+        setIsInWishlist(true)
+        alert(`"${title}" agregado a tu lista de deseados`)
+      }
+
+      localStorage.setItem("yero-wishlist", JSON.stringify(newWishlist))
+    } catch (error) {
+      console.error("Error updating wishlist:", error)
+    }
+  }
 
   // Function to advance to the next slide
   const nextSlide = useCallback(() => {
@@ -474,29 +514,45 @@ export default function ItemModal({ showModal, setModal, item }) {
                 <Text color={subTextColor}>{stock} unidades</Text>
               </Flex>
 
-              {/* Add to Cart Button */}
-              <Box mt="4">
-                {counter < 1 ? (
-                  <Button
-                    variantColor="teal"
-                    size="lg"
-                    width="100%"
-                    onClick={handleAddToCart}
-                    boxShadow="md"
-                    _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
-                    transition="all 0.2s"
-                  >
-                    Añadir a la cesta
-                  </Button>
-                ) : (
-                  <Flex align="center" justify="center" bg="green.50" p="3" borderRadius="md" boxShadow="md">
-                    <Icon name="check-circle" color="green.500" mr="2" />
-                    <Text color="green.500">
-                      "{title}" en la cesta ({counter})
-                    </Text>
-                  </Flex>
-                )}
-              </Box>
+              {/* Action Buttons */}
+              <Flex gap={2} mb="4">
+                <PseudoBox
+                  as="button"
+                  onClick={toggleWishlist}
+                  p={3}
+                  bg={isInWishlist ? "red.500" : "gray.200"}
+                  color={isInWishlist ? "white" : "gray.600"}
+                  borderRadius="md"
+                  _hover={{ bg: isInWishlist ? "red.600" : "gray.300" }}
+                  transition="all 0.2s"
+                  flex="0 0 auto"
+                >
+                  <Text fontSize="lg">{isInWishlist ? "❤️" : "🤍"}</Text>
+                </PseudoBox>
+
+                <Box flex="1">
+                  {counter < 1 ? (
+                    <Button
+                      variantColor="teal"
+                      size="lg"
+                      width="100%"
+                      onClick={handleAddToCart}
+                      boxShadow="md"
+                      _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
+                      transition="all 0.2s"
+                    >
+                      Añadir a la cesta
+                    </Button>
+                  ) : (
+                    <Flex align="center" justify="center" bg="green.50" p="3" borderRadius="md" boxShadow="md">
+                      <Icon name="check-circle" color="green.500" mr="2" />
+                      <Text color="green.500">
+                        "{title}" en la cesta ({counter})
+                      </Text>
+                    </Flex>
+                  )}
+                </Box>
+              </Flex>
             </Box>
           </Box>
         )}
@@ -594,27 +650,51 @@ export default function ItemModal({ showModal, setModal, item }) {
                 </Box>
               </Grid>
 
-              {/* Add to Cart Button */}
-              {counter < 1 ? (
-                <Button
-                  variantColor="teal"
-                  size="lg"
-                  width="100%"
-                  onClick={handleAddToCart}
-                  boxShadow="md"
-                  _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
+              {/* Action Buttons */}
+              <Flex gap={3} mb="4">
+                <PseudoBox
+                  as="button"
+                  onClick={toggleWishlist}
+                  p={3}
+                  bg={isInWishlist ? "red.500" : "gray.200"}
+                  color={isInWishlist ? "white" : "gray.600"}
+                  borderRadius="md"
+                  _hover={{ bg: isInWishlist ? "red.600" : "gray.300" }}
                   transition="all 0.2s"
+                  flex="0 0 auto"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
                 >
-                  Añadir a la cesta
-                </Button>
-              ) : (
-                <Flex align="center" justify="center" bg="green.50" p="3" borderRadius="md" boxShadow="md">
-                  <Icon name="check-circle" color="green.500" mr="2" />
-                  <Text color="green.500">
-                    "{title}" en la cesta ({counter})
+                  <Text fontSize="lg" mr={2}>
+                    {isInWishlist ? "❤️" : "🤍"}
                   </Text>
-                </Flex>
-              )}
+                  <Text fontSize="sm">{isInWishlist ? "En deseados" : "Agregar"}</Text>
+                </PseudoBox>
+
+                <Box flex="1">
+                  {counter < 1 ? (
+                    <Button
+                      variantColor="teal"
+                      size="lg"
+                      width="100%"
+                      onClick={handleAddToCart}
+                      boxShadow="md"
+                      _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
+                      transition="all 0.2s"
+                    >
+                      Añadir a la cesta
+                    </Button>
+                  ) : (
+                    <Flex align="center" justify="center" bg="green.50" p="3" borderRadius="md" boxShadow="md">
+                      <Icon name="check-circle" color="green.500" mr="2" />
+                      <Text color="green.500">
+                        "{title}" en la cesta ({counter})
+                      </Text>
+                    </Flex>
+                  )}
+                </Box>
+              </Flex>
             </Box>
           </Grid>
         )}
@@ -957,6 +1037,32 @@ export default function ItemModal({ showModal, setModal, item }) {
                     </Flex>
                   </Grid>
                 </Box>
+
+                {/* Action Buttons */}
+                <Flex gap={4} mb="6">
+                  <PseudoBox
+                    as="button"
+                    onClick={toggleWishlist}
+                    p={4}
+                    bg={isInWishlist ? "red.500" : "gray.200"}
+                    color={isInWishlist ? "white" : "gray.600"}
+                    borderRadius="lg"
+                    _hover={{ bg: isInWishlist ? "red.600" : "gray.300", transform: "translateY(-2px)" }}
+                    transition="all 0.2s"
+                    flex="0 0 auto"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    boxShadow="md"
+                  >
+                    <Text fontSize="xl" mr={3}>
+                      {isInWishlist ? "❤️" : "🤍"}
+                    </Text>
+                    <Text fontSize="md" fontWeight="medium">
+                      {isInWishlist ? "En deseados" : "Agregar a deseados"}
+                    </Text>
+                  </PseudoBox>
+                </Flex>
 
                 <Box mt="auto">
                   {counter < 1 ? (

@@ -1,25 +1,12 @@
 "use client"
 
-import { Box, RadioButtonGroup, Badge, Flex, Text } from "@chakra-ui/core"
-import {
-  BiCake,
-  BiDish,
-  BiDrink,
-  BiFirstAid,
-  BiHomeAlt,
-  BiShoppingBag,
-  BiStore,
-  BiLaptop,
-  BiDevices,
-  BiCamera,
-  BiTime,
-} from "react-icons/bi"
+import { Box, RadioButtonGroup } from "@chakra-ui/core"
+import { BiCake, BiDish, BiDrink, BiFirstAid, BiHomeAlt, BiShoppingBag, BiStore, BiLaptop, BiDesktop, BiDevices, BiPhotoAlbum, BiCamera, BiCameraHome, BiCameraMovie, BiCameraOff } from "react-icons/bi"
 import CustomRadio from "../others/CustomRadio"
 import { useRecoilState } from "recoil"
 import { selectedCategory } from "../../recoil/state"
 import { useEffect } from "react"
 import useIsDesktop from "../../hooks/useIsDesktop"
-import RecentProductsModal from "../others/RecentProductsModal"
 
 // Define category color schemes
 const categoryColors = {
@@ -43,19 +30,9 @@ const categoryColors = {
     secondary: "#4299E1",
     gradient: "linear-gradient(135deg, #2C5282 0%, #4299E1 100%)",
   },
-  Computers: {
-    primary: "#2C5282",
-    secondary: "#4299E1",
-    gradient: "linear-gradient(135deg, #2C5282 0%, #4299E1 100%)",
-  },
-  Photography: {
-    primary: "#2C5282",
-    secondary: "#4299E1",
-    gradient: "linear-gradient(135deg, #2C5282 0%, #4299E1 100%)",
-  },
 }
 
-export default function Sidebar({ showSidebar, setSidebar, recentCount }) {
+export default function Sidebar({ showSidebar, setSidebar }) {
   const [category, setCategory] = useRecoilState(selectedCategory)
   const isDesktop = useIsDesktop()
 
@@ -147,6 +124,9 @@ export default function Sidebar({ showSidebar, setSidebar, recentCount }) {
             />
           }
           colorScheme={categoryColors.Ropa_calzado_accesorios}
+
+
+// agregado recientemente Ordenadores
         />
         <CustomRadio
           value="Computers"
@@ -161,6 +141,9 @@ export default function Sidebar({ showSidebar, setSidebar, recentCount }) {
             />
           }
           colorScheme={categoryColors.Computers}
+
+
+// agregado recientemente Componentes de PC
         />
         <CustomRadio
           value="Components"
@@ -175,7 +158,11 @@ export default function Sidebar({ showSidebar, setSidebar, recentCount }) {
             />
           }
           colorScheme={categoryColors.Components}
-        />
+
+
+
+// agregado recientemente Fotografía y Accesorios
+/>
         <CustomRadio
           value="Photography"
           title="Fotografía y Accesorios"
@@ -189,27 +176,11 @@ export default function Sidebar({ showSidebar, setSidebar, recentCount }) {
             />
           }
           colorScheme={categoryColors.Photography}
+
+
+
+
         />
-        <Box mt={6} pt={4} borderTop="1px solid" borderColor="gray.200">
-          <Text fontSize="sm" fontWeight="bold" color="gray.600" mb={3} px={4}>
-            Agregados Recientemente
-          </Text>
-          <RecentProductsModal recentCount={recentCount}>
-            <Box px={4} py={2} cursor="pointer" _hover={{ bg: "gray.50" }} transition="all 0.2s">
-              <Flex align="center">
-                <Box as={BiTime} size="16px" mr={2} color="blue.500" />
-                <Text fontSize="sm" color="gray.700">
-                  Ver productos recientes
-                </Text>
-                {recentCount > 0 && (
-                  <Badge ml="auto" colorScheme="blue" size="sm">
-                    {recentCount}
-                  </Badge>
-                )}
-              </Flex>
-            </Box>
-          </RecentProductsModal>
-        </Box>
       </RadioButtonGroup>
 
       <style jsx global>{`
@@ -272,12 +243,6 @@ export default function Sidebar({ showSidebar, setSidebar, recentCount }) {
         }
         
         [aria-checked="true"] .category-components {
-          color: #2C5282;
-          filter: drop-shadow(0 0 5px rgba(44, 82, 130, 0.5));
-          animation: pulse-components 2s infinite;
-        }
-
-        [aria-checked="true"] .category-Computers {
           color: #2C5282;
           filter: drop-shadow(0 0 5px rgba(44, 82, 130, 0.5));
           animation: pulse-components 2s infinite;

@@ -4,22 +4,29 @@ import { Badge, Box, Flex, PseudoBox } from "@chakra-ui/core"
 import { useState } from "react"
 import { BiMenuAltLeft, BiSearch, BiShoppingBag, BiStoreAlt } from "react-icons/bi"
 import SearchBar from "../others/SearchBar"
-import Link from "next/link"
 import { useRecoilValue } from "recoil"
 import { cartLength } from "../../recoil/state"
 import Logo from "../others/Logo"
+import YeroMenu from "../others/YeroMenu"
+import Link from "next/link"
 
 export default function Header({ page = "", showSidebar = false, setSidebar = false, setCart = () => {} }) {
   const [showSearch, setShowSearch] = useState(false)
+  const [showYeroMenu, setShowYeroMenu] = useState(false)
   const itemsCount = useRecoilValue(cartLength)
 
   return (
     <>
       <Box as="header" w="100%" bg="white" py="28px" shadow="md" h="100px" position="sticky" top="0" zIndex="1101">
         <Flex w="95%" mx="auto" justify="space-between" align="center" wrap="wrap">
-          <Flex mr="10" align="center" onClick={() => {}}>
+          <Flex mr="10" align="center" onClick={() => setShowYeroMenu(true)} cursor="pointer">
             {page === "home" && (
-              <button onClick={() => setSidebar(!showSidebar)}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setSidebar(!showSidebar)
+                }}
+              >
                 <Box as={BiMenuAltLeft} size="38px" mr="2" />
               </button>
             )}
@@ -64,6 +71,7 @@ export default function Header({ page = "", showSidebar = false, setSidebar = fa
       </Box>
 
       {showSearch && <SearchBar setShowSearch={setShowSearch} />}
+      <YeroMenu isOpen={showYeroMenu} onClose={() => setShowYeroMenu(false)} />
     </>
   )
 }
